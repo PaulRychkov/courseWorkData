@@ -1,0 +1,44 @@
+﻿@using CourseWorkData.Models
+@{
+    ViewBag.Title = "Diagnosis";
+}
+<h2>Добавление диагноза</h2>
+<form asp-action="createDiagnosis" asp-controller="home">
+    <p>
+        <select name="disId">
+            @foreach (Disease i in ViewBag.dis)
+            {
+                <option value="@i.Id">@i.Name</option>
+            }
+        </select>
+        <select name="usrId">
+            @foreach (User i in ViewBag.usr)
+            {
+                <option value="@i.Id">@i.LastName @i.FirstName @i.PatrName</option>
+            }
+        </select>
+        <select name="docId">
+            @foreach (Doctor i in ViewBag.doc)
+            {
+                <option value="@i.Id">@i.LastName @i.FirstName @i.PatrName</option>
+            }
+        </select>
+        <div>
+            <input type="radio" name="value" value="1">
+            <label for="contactChoice1">Изменить</label>
+
+            <input type="radio" name="value" value="0">
+            <label for="contactChoice2">Добавить</label>
+        </div>
+        <select name="disNewId">
+            @foreach (Disease i in ViewBag.dis)
+            {
+                <option value="@i.Id">@i.Name</option>
+            }
+        </select>
+    </p>
+    <p>
+        <input type="submit" value="Send" />
+    </p>
+</form>
+<p><a asp-action="ShowDiagnosis" >Показать диагнозы</a></p>

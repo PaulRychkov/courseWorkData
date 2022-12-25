@@ -1,0 +1,28 @@
+﻿@using CourseWorkData.Models
+@model List<CourseWorkData.Models.AppointmentTable>
+@{
+    ViewBag.Title = "ShowAppointment";
+}
+<h2>Список времени работы</h2>
+<table class="table">
+    <tr><th>—</th><th>Врач</th><th>Имя</th><th>Отчество</th><th>Участок</th><th>Кабинет</th><th>День</th><th>Начало приема</th><th>Конец приема</th></tr>
+    @{     
+      int i = 1;
+      foreach (var item in Model)
+      {          
+        <tr>
+                <th>@i</th>
+                <td>@item.Lname</td>
+                <td>@item.Fname</td>
+                <td>@item.Pname</td>
+                <td>@item.District</td>
+                <td>@item.Cabinet</td>
+                <td>@item.Day</td>
+                <td>@item.AppStart</td>
+                <td>@item.AppEnd</td>
+            </tr>
+        i++;
+      }
+    }
+</table>
+<p><a asp-action="CreateAppointment">Добавить время приема</a></p>

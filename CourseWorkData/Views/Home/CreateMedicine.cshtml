@@ -1,0 +1,23 @@
+﻿@model CourseWorkData.Models.Medicine
+@{
+    ViewBag.Title = "Medicine";
+}
+<h2>Добавление метода лечения</h2>
+<form asp-action="createMedicine" asp-controller="home">
+    <p>
+        <label asp-for="Name">Метод лечения</label><br />
+        <input type="text" asp-for="Name" />
+        <span asp-validation-for="Name" />
+    </p>
+    <p>
+        <input type="submit" value="Отправить" />
+    </p>
+</form>
+@if (ViewBag.error != null)
+{
+    @foreach (var item in ViewBag.error)
+    {
+        <p>@item.ErrorMessage</p>
+    }
+}
+<p><a asp-action="ShowMedicine">Показать методы лечения</a></p>

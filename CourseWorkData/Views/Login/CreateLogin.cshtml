@@ -1,0 +1,16 @@
+﻿@model CourseWorkData.Models.LoginModel
+@{
+    Layout = null;
+    ViewBag.Title = "LoginModel";
+}
+<h2>введите пароль</h2>
+<form asp-action="CreateLogin" asp-controller="Login">
+    <p>
+        <label asp-for="Password">пароль</label><br />
+        <input type="password" asp-for="Password" />
+        <span asp-validation-for="Password" />
+    </p>
+    <p>
+        <input type="submit" value="Отправить" />
+    </p>
+</form>

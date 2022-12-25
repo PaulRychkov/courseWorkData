@@ -1,0 +1,16 @@
+﻿@model CourseWorkData.Models.Disease
+@{
+    ViewBag.Title = "FindDisease";
+}
+<h2>Поиск болезни</h2>
+<form asp-action="CreateFindDisease" asp-controller="home">
+    <p>
+        <label name="name">Название</label>
+        <input type="text" name="name" />
+        <span asp-validation-for="Name" />
+    </p>
+    <p>
+        <input type="submit" value="Отправить">
+    </p>
+</form>
+

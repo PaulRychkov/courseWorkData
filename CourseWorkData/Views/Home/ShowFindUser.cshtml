@@ -1,0 +1,33 @@
+﻿@using CourseWorkData.Models
+@{
+    ViewBag.Title = "ShowUser";
+}
+<h2>Список пациентов</h2>
+<table class="table">
+    <tr><th>—</th><th>Адрес</th><th>Фамилия</th><th>Имя</th><th>Отчество</th><th>Диагноз</th><th>Дата</th></tr>
+    @{     
+      int i = 1;
+        foreach (var item in ViewBag.Name)
+      {          
+        <tr>
+                <th>@i</th>
+                <td>@item.Address</td>
+                <td>@item.Lname</td>
+                <td>@item.Fname</td>
+                <td>@item.Pname</td>
+                <td>@item.Dname</td>
+                <td>@item.DateD</td>
+                <td><p><a asp-action="CreateFindDoctorByUser" asp-route-id="@item.Did" >Найти лечащего врача</a></p></td>
+                <td>
+                    <p>
+                        <a asp-action="ShowFindUserGetFile" asp-route-Address="@item.Address" asp-route-Lname="@item.Lname" asp-route-Fname="@item.Fname"
+                   asp-route-Pname="@item.Pname" asp-route-Dname="@item.Dname" asp-route-DateD="@item.DateD">подготовить справку</a>
+                    </p>
+                </td>
+            </tr>
+        i++;
+      }
+    }  
+</table>
+<p><a href="~/files/справка.txt" download>Скачать справку</a></p>
+<p><a asp-action="CreateUser">Добавить пациента</a></p>

@@ -1,0 +1,22 @@
+﻿@model IEnumerable<CourseWorkData.Models.Disease>
+@{
+    ViewBag.Title = "ShowDisease";
+}
+<h2>Список болезней</h2>
+<table class="table">
+    <tr><th>—</th><th>Название</th></tr>
+    @{
+        int i = 1;
+        foreach (var item in ViewBag.Name)
+        {
+            <tr>
+                <th>@i</th>
+                <td>@item.Name</td>
+                <p><a asp-action="ShowSymptom" asp-route-Did="@item.Id">Найти симптомы</a></p>
+                <p><a asp-action="ShowMedicine" asp-route-Did="@item.Id">Найти методы лечения</a></p>
+            </tr>
+            i++;
+        }
+    }
+</table>
+<p><a asp-action="CreateDisease">Добавить болезнь</a></p>

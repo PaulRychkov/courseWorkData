@@ -1,0 +1,22 @@
+﻿@model IEnumerable<CourseWorkData.Models.Doctor>
+@{
+    ViewBag.Title = "ShowDoctor";
+}
+<h2>Список врачей</h2>
+<table class="table">
+    <tr><th>—</th><th>Фамилия</th><th>Имя</th><th>Отчество</th></tr>
+    @{
+        int i = 1;
+        foreach (var item in Model)
+        {
+            <tr>
+                <th>@i</th>
+                <td>@item.LastName</td>
+                <td>@item.FirstName</td>
+                <td>@item.PatrName</td>
+            </tr>
+            i++;
+        }
+    }
+</table>
+<p><a asp-action="CreateDoctor">Добавить врача</a></p>

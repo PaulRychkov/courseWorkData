@@ -1,0 +1,26 @@
+﻿@model CourseWorkData.Models.Doctor
+@{
+    ViewBag.Title = "FindDoctor";
+}
+<h2>Поиск врача</h2>
+<form asp-action="CreateFindDoctor" asp-controller="home">
+    <p>
+        <label name="Lname">Фамилия</label>
+        <input type="text" name="Lname" />
+        <span asp-validation-for="FirstName" />
+    </p>
+     <p>
+        <label name="Fname">Имя</label>
+        <input type="text" name="Fname" />
+        <span asp-validation-for="LastName" />
+    </p>
+     <p>
+        <label name="Pname">Отчество</label>
+        <input type="text" name="Pname" />
+        <span asp-validation-for="PatrName" />
+    </p>
+    <p>
+        <input type="submit" value="Отправить">
+    </p>
+</form>
+

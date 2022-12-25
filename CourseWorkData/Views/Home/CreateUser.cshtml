@@ -1,0 +1,38 @@
+﻿@model CourseWorkData.Models.User
+@{
+    ViewBag.Title = "User";
+}
+<h2>Добавление пациента</h2>
+<form asp-action="createUser" asp-controller="home">
+    <p>
+        <label asp-for="LastName">Фамилия</label><br />
+        <input type="text" asp-for="LastName" />
+        <span asp-validation-for="LastName" />
+    </p>
+    <p>
+        <label asp-for="FirstName">Имя</label><br />
+        <input type="text" asp-for="FirstName" />
+        <span asp-validation-for="FirstName" />
+    </p>
+    <p>
+        <label asp-for="PatrName">Отчество</label><br />
+        <input type="text" asp-for="PatrName" />
+        <span asp-validation-for="PatrName" />
+    </p>
+    <p>
+        <label asp-for="Adress">Адрес</label><br />
+        <input type="text" asp-for="Adress" />
+        <span asp-validation-for="Adress" />
+    </p>
+    <p>
+        <input type="submit" value="Отправить" />
+    </p>
+    @if (ViewBag.error != null)
+    {        
+      @foreach (var item in ViewBag.error)
+      {
+         <p>@item.ErrorMessage</p>
+      }
+    }
+</form>
+<p><a asp-action="ShowUser">Показать пациентов</a></p>

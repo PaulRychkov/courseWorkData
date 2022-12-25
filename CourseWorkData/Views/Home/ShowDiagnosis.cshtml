@@ -1,0 +1,28 @@
+﻿@using CourseWorkData.Models
+@model List<CourseWorkData.Models.DiagnosisTable>
+@{
+    ViewBag.Title = "ShowUser";
+}
+<h2>Список пациентов</h2>
+<table class="table">
+    <tr><th>—</th><th>Пациент</th><th>Имя</th><th>Отчество</th><th>Врач</th><th>Имя</th><th>Отчество</th><th>Диагноз</th><th>Дата</th></tr>
+    @{     
+      int i = 1;
+      foreach (var item in Model)
+      {          
+        <tr>
+                <th>@i</th>
+                <td>@item.ULname</td>
+                <td>@item.UFname</td>
+                <td>@item.UPname</td>
+                <td>@item.DLname</td>
+                <td>@item.DFname</td>
+                <td>@item.DPname</td>
+                <td>@item.Dname</td> 
+                <td>@item.DateD</td> 
+            </tr>
+        i++;
+      }
+    }
+</table>
+<p><a asp-action="CreateDiagnosis">Добавить диагноз</a></p>

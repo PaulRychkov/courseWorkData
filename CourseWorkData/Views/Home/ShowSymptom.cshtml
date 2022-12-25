@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "ShowSymptom";
+}
+<h2>Список симптомов</h2>
+<table class="table">
+    <tr><th>—</th><th>Название</th></tr>
+    @{
+        int i = 1;
+        foreach (var item in ViewBag.Name)
+        {
+            <tr>
+                <th>@i</th>
+                <td>@item</td>
+                <td><p><a asp-action="ShowDiseaseForSymptom" asp-route-name="@item" >Найти болезни по симптому</a></p></td>
+            </tr>
+            i++;
+        }
+    }
+</table>
+<p><a asp-action="CreateSymptom">Добавить симптом</a></p>

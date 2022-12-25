@@ -1,0 +1,24 @@
+﻿@model IEnumerable<CourseWorkData.Models.User>
+@{
+    ViewBag.Title = "ShowUser";
+}
+<h2>Список пациентов</h2>
+<table class="table">
+    <tr><th>—</th><th>Фамилия</th><th>Имя</th><th>Отчество</th><th>Адрес</th></tr>
+    @{     
+      int i = 1;
+      foreach (var item in Model)
+      {          
+        <tr>
+                <th>@i</th>
+                <td>@item.LastName</td>
+                <td>@item.FirstName</td>
+                <td>@item.PatrName</td>
+                <td>@item.Adress</td>
+            </tr>
+        i++;
+      }
+    }
+</table>
+<p><a asp-action="CreateUser">Добавить пациента</a></p>
+
